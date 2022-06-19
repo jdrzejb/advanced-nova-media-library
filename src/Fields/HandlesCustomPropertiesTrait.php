@@ -1,6 +1,6 @@
 <?php
 
-namespace Ebess\AdvancedNovaMediaLibrary\Fields;
+namespace Jdrzejb\AdvancedNovaMediaLibrary\Fields;
 
 use Laravel\Nova\Fields\Field;
 use Spatie\MediaLibrary\HasMedia;
@@ -45,7 +45,7 @@ trait HandlesCustomPropertiesTrait
                 return $value instanceof UploadedFile || $value instanceof FileBag;
             })
             ->each(function ($id, int $index) use ($request, $mediaItems, $collection) {
-                if (! $media = $mediaItems->where('id', $id)->first()) {
+                if (!$media = $mediaItems->where('id', $id)->first()) {
                     return;
                 }
 

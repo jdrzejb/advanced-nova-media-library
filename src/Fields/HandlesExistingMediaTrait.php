@@ -1,6 +1,6 @@
 <?php
 
-namespace Ebess\AdvancedNovaMediaLibrary\Fields;
+namespace Jdrzejb\AdvancedNovaMediaLibrary\Fields;
 
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Support\Collection;
@@ -27,7 +27,7 @@ trait HandlesExistingMediaTrait
             ->filter(function ($value) use ($addedMediaIds) {
                 // New files will come in as UploadedFile objects, 
                 // whereas Vapor-uploaded files will come in as arrays.
-                return (! ($value instanceof UploadedFile)) && (! (is_array($value))) && ! (in_array($value, $addedMediaIds));
+                return (!($value instanceof UploadedFile)) && (!(is_array($value))) && !(in_array($value, $addedMediaIds));
             })->map(function ($model_id, int $index) use ($request, $model, $collection) {
                 $mediaClass = config('media-library.media_model');
                 $existingMedia = $mediaClass::find($model_id);
@@ -43,7 +43,7 @@ trait HandlesExistingMediaTrait
                     $media->withResponsiveImages();
                 }
 
-                if (! empty($this->customHeaders)) {
+                if (!empty($this->customHeaders)) {
                     $media->addCustomHeaders($this->customHeaders);
                 }
 

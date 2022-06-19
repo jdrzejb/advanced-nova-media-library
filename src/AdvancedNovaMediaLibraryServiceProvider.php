@@ -1,6 +1,6 @@
 <?php
 
-namespace Ebess\AdvancedNovaMediaLibrary;
+namespace Jdrzejb\AdvancedNovaMediaLibrary;
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Nova\Nova;
@@ -20,7 +20,7 @@ class AdvancedNovaMediaLibraryServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('media-lib-images-field', __DIR__.'/../dist/js/field.js');
+            Nova::script('media-lib-images-field', __DIR__ . '/../dist/js/field.js');
         });
     }
 
@@ -31,7 +31,7 @@ class AdvancedNovaMediaLibraryServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-            ->prefix('nova-vendor/ebess/advanced-nova-media-library')
-            ->group(__DIR__.'/../routes/api.php');
+            ->prefix('nova-vendor/jdrzejb/advanced-nova-media-library')
+            ->group(__DIR__ . '/../routes/api.php');
     }
 }
