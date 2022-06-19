@@ -53,10 +53,7 @@
               v-for="(item, key) in items"
               :key="key"
               :item="item"
-              @select="
-                $emit('select', item)
-                close()
-              "
+              @select="select(item)"
             ></existing-media-item>
           </div>
 
@@ -125,6 +122,10 @@ export default {
   methods: {
     close() {
       this.$emit('close')
+    },
+    select(item) {
+      $emit('select', item)
+      close()
     },
     refresh() {
       this.requestParams.page = 1
